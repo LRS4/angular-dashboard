@@ -1,3 +1,10 @@
 <app-navbar></app-navbar>
-<app-sidebar></app-sidebar>
-<h1>{{ title }} app is running!</h1>
+
+<div class="container-fluid">
+  <div class="row" id="mainContent">
+    <app-sidebar class="col-sm-3"></app-sidebar>
+    <div class="col-sm-9" id="dashboard">
+      <p>Content goes here.</p>
+    </div>
+  </div>
+</div>
