@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Server } from '../../shared/server';
 
-const SAMPLE_SERVERS: any[] = [
+const SAMPLE_SERVERS: Server[] = [
   { id: 1, name: 'dev-web', isOnline: true },
   { id: 2, name: 'dev-mail', isOnline: false },
   { id: 3, name: 'prod-web', isOnline: true },

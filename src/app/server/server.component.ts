@@ -15,4 +15,8 @@ export class ServerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleStatus(onlineStatus: boolean): void {
+    console.log(this.serverInput.name, ':', onlineStatus);
+  }
+
 }

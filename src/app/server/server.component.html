@@ -5,7 +5,7 @@
     <div class="card-body status">
         {{ serverInput.isOnline }}
     </div>
-    <button class="btn btn-default action">
+    <button (click)="toggleStatus(serverInput.isOnline)" class="btn btn-default action">
         Toggle Status
     </button>
 </div>
