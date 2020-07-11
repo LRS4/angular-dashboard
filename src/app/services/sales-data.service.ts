@@ -8,17 +8,17 @@ export class SalesDataService {
   constructor(private _http: Http) { }
 
   getOrders(pageIndex: number, pageSize: number) {
-    return this._http.get('http://localhost:5000/api/order/' + pageIndex + '/' + pageSize)
+    return this._http.get('https://localhost:44364/api/order/' + pageIndex + '/' + pageSize)
       .map(res => res || []);
   }
 
-  getOrdersByCustomer(n: number) {
-    return this._http.get('http://localhost:5000/api/order/bycustomer/' + n)
+  getOrdersByCustomer(numberOfCustomers: number) {
+    return this._http.get('https://localhost:44364/api/order/bycustomer/' + numberOfCustomers)
       .map(res => res || []);
   }
 
   getOrdersByState() {
-    return this._http.get('http://localhost:5000/api/order/bystate/')
+    return this._http.get('https://localhost:44364/api/order/bystate/')
       .map(res => res || []);
   }
 }
