@@ -30,5 +30,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * [Angular Documentation](https://angular.io/)
 * [Angular CLI](https://cli.angular.io/)
 * [Application Structure](https://www.youtube.com/watch?v=yGBV2qvZnMM&list=PL3_YUnRN3Uhh5vywsT75JbQsB8eBpwm1y&index=2)
-* [np2-charts][https://valor-software.com/ng2-charts/]
+* [ng2-charts][https://valor-software.com/ng2-charts/]
 * [Interfaces](https://www.youtube.com/watch?v=NeUrwZVi4IE)
