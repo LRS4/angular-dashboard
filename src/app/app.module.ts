@@ -15,7 +15,8 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { ServerComponent } from './server/server.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { SalesDataService } from './services/sales-data.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ServerService } from './services/server.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    SalesDataService
+    SalesDataService,
+    ServerService
   ],
   bootstrap: [AppComponent]
 })
