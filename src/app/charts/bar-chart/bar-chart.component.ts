@@ -53,14 +53,14 @@ export class BarChartComponent implements OnInit {
     }, [])
 
     const chartData = this.groupTotalsByDate(formattedOrders);
-    console.log("Grouped orders: ", chartData);
+    // console.log("Grouped orders: ", chartData);
 
     return chartData;
   }
 
   groupTotalsByDate(formattedOrders: any): Object[] {
     const p = [];
-    console.log("Formatted orders: ", formattedOrders);
+    // console.log("Formatted orders: ", formattedOrders);
 
     return formattedOrders.reduce((arr, current) => {
       const key = current[0]; 
