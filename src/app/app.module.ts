@@ -17,6 +17,8 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { SalesDataService } from './services/sales-data.service';
 import { ServerService } from './services/server.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './user/user.component';
+import { RegistrationComponent } from './user/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     LineChartComponent,
     PieChartComponent,
     ServerComponent,
-    PaginationComponent
+    PaginationComponent,
+    UserComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
