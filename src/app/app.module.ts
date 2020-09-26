@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { ServerService } from './services/server.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -40,11 +42,13 @@ import { RegistrationComponent } from './user/registration/registration.componen
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     SalesDataService,
-    ServerService
+    ServerService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

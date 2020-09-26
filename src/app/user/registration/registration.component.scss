@@ -1,0 +1,16 @@
+input {
+    background-color: lightgray;
+}
+
+input:focus {
+    background-color: lightblue;
+    color: black;
+}
+
+button[type=submit] {
+    cursor: pointer;
+}
+
+label {
+    font-size: 20px;
+}
