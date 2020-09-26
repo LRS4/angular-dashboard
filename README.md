@@ -33,3 +33,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * [ng2-charts][https://valor-software.com/ng2-charts/]
 * [lodash](https://lodash.com/)
 * [Interfaces](https://www.youtube.com/watch?v=NeUrwZVi4IE)
+* [JWT 401 Unauthorized Fix](https://stackoverflow.com/questions/55781040/401-unauthorized-www-authenticate-bearer)

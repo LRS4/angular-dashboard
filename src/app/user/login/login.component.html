@@ -1,0 +1,20 @@
+<form #form='ngForm' class="mb-4" autocomplete="off">
+    <div class="alert alert-danger mt-4" role="alert" *ngIf="form.invalid">
+        Invalid.
+    </div>
+    <div class="form-group mt-4">
+        <label>
+            Username
+        </label>
+        <input class="form-control" #UserName="ngModel" name="UserName" [(ngModel)]="formModel.UserName" required />
+    </div>
+    <div class="form-group">
+        <label>
+            Password
+        </label>
+        <input type="password" class="form-control" #UserName="ngModel" name="PassWord" [(ngModel)]="formModel.Password" required />
+    </div>
+    <button type="submit" class="btn btn-dark btn-lg btn-block mt-5" [disabled]="form.invalid">
+        Login
+    </button>
+</form>
