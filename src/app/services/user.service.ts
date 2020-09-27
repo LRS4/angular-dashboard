@@ -22,7 +22,8 @@ export class UserService {
     Passwords: this.fb.group({
       Password: ['', Validators.required],
       ConfirmPassword: ['', Validators.required],
-    }, { validator: this.comparePasswords })
+    }, { validator: this.comparePasswords }),
+    IsAdmin: ['']
   });
 
   comparePasswords(fb:FormGroup) {
@@ -45,6 +46,7 @@ export class UserService {
       FirstName: this.formModel.value.FirstName,
       LastName: this.formModel.value.LastName,
       Password: this.formModel.value.Passwords.Password,
+      IsAdmin: (this.formModel.value.IsAdmin) ? this.formModel.value.IsAdmin : false
     };
     return this.http.post(this.BaseURI.concat('user/register'), body);
   }

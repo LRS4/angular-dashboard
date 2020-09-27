@@ -1,5 +1,5 @@
-<div class="row justify-content-center">
-    <div class="col-md-12 justify-content-center">
+<div class="row">
+    <div class="col-md-12">
         <div class="alert alert-danger" role="alert" *ngIf="service.registerErrorMessage != null">
             {{ service.registerErrorMessage }}
         </div>
@@ -53,6 +53,10 @@
                         Passwords do not match.
                     </label>
                 </div>
+            </div>
+            <div class="form-check required" style="margin-left: 20px;">
+                <input type="checkbox" class="form-check-input" id="adminFlag" formControlName="IsAdmin">
+                <label class="form-check-label" for="adminFlag">Admin</label>
             </div>
             <button type="submit" class="btn btn-dark btn-lg btn-block mt-5" [disabled]="!service.formModel.valid">
                 Register
