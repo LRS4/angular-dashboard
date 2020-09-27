@@ -15,11 +15,23 @@ export class RegistrationComponent implements OnInit {
     this.service.formModel.reset();
   }
 
+  setUserProfileData() {
+    this.service.getUserProfile().subscribe(
+      res => {
+        this.service.userDetails = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
   onSubmit() {
     this.service.register().subscribe(
       (res:any) => { 
         if (res.succeeded) {
           this.service.formModel.reset();
+          this.setUserProfileData();
           this.router.navigate(['/sales']);
         } else {
           res.errors.forEach(element => {

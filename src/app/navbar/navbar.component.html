@@ -8,20 +8,20 @@
 </a>
 <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-        <a class="nav-link text-light btn btn-link" disabled *ngIf="userDetails">
-            Logged in as <strong>{{ userDetails.userName }} </strong>
-            <span *ngIf="userDetails.email != null">({{ userDetails.email }})</span>
+        <a class="nav-link text-light btn btn-link" disabled *ngIf="service.userDetails">
+            Logged in as <strong>{{ service.userDetails.userName }} </strong>
+            <span *ngIf="service.userDetails.email != null">({{ service.userDetails.email }})</span>
         </a>
     </li>
-    <li class="nav-item">
-        <a routerLink="/user/register" class="nav-link text-light">Register User</a>
-    </li>
-    <li class="nav-item">
-        <a routerLink="/user/login" class="nav-link text-light">Login</a>
-    </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="service.userDetails">
         <a class="nav-link text-light btn btn-link" href="#" role="button" (click)="onLogout($event)">
             Logout
         </a>
+    </li>
+    <li class="nav-item" *ngIf="service.userDetails == null">
+        <a routerLink="/user/register" class="nav-link text-light">Register User</a>
+    </li>
+    <li class="nav-item" *ngIf="service.userDetails == null">
+        <a routerLink="/user/login" class="nav-link text-light">Login</a>
     </li>
 </ul>

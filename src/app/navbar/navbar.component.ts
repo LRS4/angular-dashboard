@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,15 +8,29 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  userDetails: any;
-
-  constructor(private service: UserService, private router: Router) { }
+ 
+  constructor(public service: UserService, 
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+      /**
+       * Subscribing to route/url changes allows components to reload
+       * data. The main fix for current user information not updating
+       * was to use a shared service - the user service
+       * @see http://marclloyd.co.uk/angular/reloading-components-when-route-parameters-change-in-angular
+       */
+      this.activatedRoute.paramMap.subscribe(params => {
+        this.ngOnInit();
+      })
+   }
 
   ngOnInit(): void {
+    this.getUserProfileData();
+  }
+
+  getUserProfileData() {
     this.service.getUserProfile().subscribe(
       res => {
-        this.userDetails = res;
-        console.log(this.userDetails);
+        this.service.userDetails = res;
       },
       err => {
         console.log(err);
@@ -26,6 +40,7 @@ export class NavbarComponent implements OnInit {
 
   onLogout($event) {
     $event.preventDefault();
+    this.service.userDetails = null;
     localStorage.removeItem('token');
     this.router.navigate(['user/login']);
   }

@@ -10,6 +10,7 @@ export class UserService {
   constructor(private fb:FormBuilder, private http:HttpClient) { }
   readonly BaseURI = 'https://localhost:44364/api/'
 
+  userDetails = null;
   registerErrorMessage = null;
   loginErrorMessage = null;
 
@@ -53,7 +54,16 @@ export class UserService {
   }
 
   getUserProfile() {
-    var tokenHeader = new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')});
-    return this.http.get(this.BaseURI.concat('userprofile'), { headers: tokenHeader });
+    /**
+     * Logic for 'user is not authenticated' moved into auth/auth.interceptor.ts 
+     * This is to enable auth guard across the entire application rather than 
+     * in one specific route
+     * 
+     * Previous code:
+     * var tokenHeader = new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')});
+     * return this.http.get(this.BaseURI.concat('userprofile'), { headers: tokenHeader });
+     */
+
+    return this.http.get(this.BaseURI.concat('userprofile'));
   }
 }

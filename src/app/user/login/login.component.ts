@@ -27,10 +27,22 @@ export class LoginComponent implements OnInit {
     return localStorage.getItem('token') != null;
   }
 
+  setUserProfileData() {
+    this.service.getUserProfile().subscribe(
+      res => {
+        this.service.userDetails = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
   onSubmit(form: NgForm) {
     this.service.login(form.value).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
+        this.setUserProfileData();
         this.router.navigateByUrl('/sales');
       },
       err => {
