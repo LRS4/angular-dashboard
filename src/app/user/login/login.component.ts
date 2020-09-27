@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     this.service.getUserProfile().subscribe(
       res => {
         this.service.userDetails = res;
+        console.log(this.service.userDetails);
       },
       err => {
         console.log(err);

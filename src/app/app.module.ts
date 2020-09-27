@@ -23,6 +23,8 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { UserService } from './services/user.service';
 import { LoginComponent } from './user/login/login.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     PaginationComponent,
     UserComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    AdminPanelComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

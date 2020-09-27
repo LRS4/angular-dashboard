@@ -14,6 +14,11 @@
         </a>
     </li>
     <li class="nav-item" *ngIf="service.userDetails">
+        <a routerLink="/admin" class="nav-link text-light" *ngIf="service.userDetails.roles.includes('Admin')">
+            Admin Panel
+        </a>
+    </li>
+    <li class="nav-item" *ngIf="service.userDetails">
         <a class="nav-link text-light btn btn-link" href="#" role="button" (click)="onLogout($event)">
             Logout
         </a>
