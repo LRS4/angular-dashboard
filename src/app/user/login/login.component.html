@@ -1,6 +1,6 @@
-<form #form='ngForm' class="mb-4" autocomplete="off">
-    <div class="alert alert-danger mt-4" role="alert" *ngIf="form.invalid">
-        Invalid.
+<form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+    <div class="alert alert-danger" role="alert" *ngIf="service.loginErrorMessage != null">
+        {{ service.loginErrorMessage }}
     </div>
     <div class="form-group mt-4">
         <label>

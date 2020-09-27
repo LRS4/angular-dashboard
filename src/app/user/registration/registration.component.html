@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-md-12 justify-content-center">
-        <div class="alert alert-danger" role="alert" *ngIf="service.formErrorMessage != null">
-            {{ service.formErrorMessage }}
+        <div class="alert alert-danger" role="alert" *ngIf="service.registerErrorMessage != null">
+            {{ service.registerErrorMessage }}
         </div>
         <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
             <div class="form-group mt-4">

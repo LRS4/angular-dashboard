@@ -25,12 +25,12 @@ export class RegistrationComponent implements OnInit {
           res.errors.forEach(element => {
             switch (element.code) {
               case 'DuplicateUserName':
-                this.service.formErrorMessage = "That username is already taken."
+                this.service.registerErrorMessage = "That username is already taken."
                 break;
               case 'PasswordRequiresLower':
-                this.service.formErrorMessage = "The password cannot contain only numbers."
+                this.service.registerErrorMessage = "The password cannot contain only numbers."
               default:
-                this.service.formErrorMessage = `Registration failed. Ensure all fields are completed and the password
+                this.service.registerErrorMessage = `Registration failed. Ensure all fields are completed and the password
                 is a combination of letters and numbers.`
                 break;
             }

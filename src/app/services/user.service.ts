@@ -10,7 +10,8 @@ export class UserService {
   constructor(private fb:FormBuilder, private http:HttpClient) { }
   readonly BaseURI = 'https://localhost:44364/api/'
 
-  formErrorMessage = null;
+  registerErrorMessage = null;
+  loginErrorMessage = null;
 
   formModel = this.fb.group({
     UserName: ['', Validators.required],
@@ -45,5 +46,9 @@ export class UserService {
       Password: this.formModel.value.Passwords.Password,
     };
     return this.http.post(this.BaseURI.concat('user/register'), body);
+  }
+
+  login(formData) {
+    return this.http.post(this.BaseURI.concat('user/login'), formData);
   }
 }
