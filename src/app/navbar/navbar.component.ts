@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  userDetails: any;
 
-  constructor(private router: Router) { }
+  constructor(private service: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    this.service.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res;
+        console.log(this.userDetails);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   onLogout($event) {

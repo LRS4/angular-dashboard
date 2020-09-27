@@ -6,12 +6,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { LoginComponent } from './user/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'sales', component: SectionSalesComponent },
-  { path: 'orders', component: SectionOrdersComponent },
-  { path: 'health', component: SectionHealthComponent },
+  { path: 'sales', component: SectionSalesComponent, canActivate: [AuthGuard] },
+  { path: 'orders', component: SectionOrdersComponent, canActivate: [AuthGuard] },
+  { path: 'health', component: SectionHealthComponent, canActivate: [AuthGuard] },
   { 
     path: 'user', component: UserComponent,
     children: [
@@ -19,7 +20,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent }
     ] 
   },
-  { path: '', redirectTo: '/sales', pathMatch: 'full'}
+  { path: '', redirectTo: '/sales', pathMatch: 'full', canActivate: [AuthGuard]}
 ];
 
 @NgModule({

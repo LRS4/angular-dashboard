@@ -13,11 +13,18 @@ export class LoginComponent implements OnInit {
   constructor(public service: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    if (this.userIsAlreadyAuthenticated()) {  
+      this.router.navigateByUrl('/sales');
+    }
   }
 
   formModel = {
     UserName: '',
     Password: ''
+  }
+
+  userIsAlreadyAuthenticated() {
+    return localStorage.getItem('token') != null;
   }
 
   onSubmit(form: NgForm) {
